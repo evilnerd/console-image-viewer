@@ -76,7 +76,7 @@ func renderImage(file string) {
 	}
 
 	orgX, orgY := img.Bounds().Max.X, img.Bounds().Max.Y
-	newX, newY := newSize(orgX, orgX, maxEdge)
+	newX, newY := newSize(orgX, orgY, maxEdge)
 	resizedImg := image.NewRGBA(image.Rect(0, 0, newX, newY))
 	draw.NearestNeighbor.Scale(resizedImg, resizedImg.Rect, img, img.Bounds(), draw.Over, nil)
 

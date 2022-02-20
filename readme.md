@@ -4,6 +4,8 @@ This command line tool scales and draws images (PNG and JPG currently) as text b
 
 To use it, call the executable and add one or more arguments that specify a file or wildcard. 
 
+![Preview](doc/sample-output.png)
+
 ## State
 
 This is a very early version, that just kind of works, but could use a lot more love. And tests.
