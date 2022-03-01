@@ -17,4 +17,4 @@ Of course, I'm standing on the shoulders of giants. These are the libraries I'm 
 * [Termenv](http://github.com/muesli/termenv) - For rendering color to the console
 * [PTerm](http://github.com/pterm/pterm) - For logging and some cool standardized way of outputing state to the user.
 * [Consolesize-go](http://github.com/nathan-fiscaletti/consolesize-go) - For determining the console size
-* [Cobra](http://github.com/spf13/cobra v1.3.0) - For handling and routing command line input and arguments.
+* [Cobra](http://github.com/spf13/cobra) - For handling and routing command line input and arguments.
