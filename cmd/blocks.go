@@ -8,23 +8,23 @@ import (
 )
 
 var (
-	charsCmd = &cobra.Command{
-		Use:   "chars <file or pattern1> [file or pattern2]...",
-		Short: "Renders the picture in mono ascii characters",
+	blocksCmd = &cobra.Command{
+		Use:   "blocks <file or pattern1> [file or pattern2]...",
+		Short: "Renders the picture in color or b/w blocks",
 		Args:  cobra.MinimumNArgs(1),
 		Run: func(cmd *cobra.Command, args []string) {
 			matches := input.GetImageFilenames(args)
 			for _, file := range matches {
 				log.DefaultSection.Println(file)
 				img, imgType := input.GetImage(file)
-				render.ImageChars(img, activeMaxEdge(), imgType)
+				render.ImageBlock(img, activeMaxEdge(), imgType, mono)
 			}
 		},
 	}
-	invert bool
+	mono bool
 )
 
 func init() {
-	// TODO: charsCmd.Flags().BoolVarP(&invert, "invert", "i", false, "Invert the picture (flip light-dark)")
-	rootCmd.AddCommand(charsCmd)
+	blocksCmd.Flags().BoolVarP(&mono, "mono", "m", false, "Show picture in monochome (grayscale)")
+	rootCmd.AddCommand(blocksCmd)
 }
