@@ -8,15 +8,6 @@ import (
 	"math"
 )
 
-var (
-	maxEdge = 48
-)
-
-func init() {
-	maxEdge = DetermineMaxEdge()
-
-}
-
 func DetermineMaxEdge() int {
 	width, height := consolesize.GetConsoleSize()
 
@@ -39,7 +30,7 @@ func newSize(x int, y int, maxEdge int) (newX int, newY int) {
 	return
 }
 
-func Resize(img image.Image, imgType string) (int, int, *image.RGBA) {
+func Resize(img image.Image, maxEdge int, imgType string) (int, int, *image.RGBA) {
 
 	orgX, orgY := img.Bounds().Max.X, img.Bounds().Max.Y
 	newX, newY := newSize(orgX, orgY, maxEdge)
