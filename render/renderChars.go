@@ -7,9 +7,9 @@ import (
 	"math"
 )
 
-func RenderImageChars(img image.Image, imgType string) {
+func ImageChars(img image.Image, maxEdge int, imgType string) {
 
-	newX, newY, resizedImg := processing.Resize(img, imgType)
+	newX, newY, resizedImg := processing.Resize(img, maxEdge, imgType)
 
 	greyImage := processing.RgbaToGray(resizedImg)
 
@@ -19,7 +19,6 @@ func RenderImageChars(img image.Image, imgType string) {
 
 	for y := 0; y < newY; y++ {
 		for x := 0; x < newX; x++ {
-			//			col := greyImage.At(x, y)
 			y := greyImage.GrayAt(x, y).Y
 			i := int(math.Floor(section * float64(y)))
 			c := chars[i : i+1]
