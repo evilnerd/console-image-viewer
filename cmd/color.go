@@ -16,7 +16,7 @@ var colorCmd = &cobra.Command{
 		for _, file := range matches {
 			log.DefaultSection.Println(file)
 			img, imgType := input.GetImage(file)
-			render.RenderImageColor(img, imgType)
+			render.ImageBlock(img, maxEdge, imgType, mono)
 		}
 	},
 }
