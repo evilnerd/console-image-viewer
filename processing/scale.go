@@ -11,10 +11,20 @@ import (
 func DetermineMaxEdge() int {
 	width, height := consolesize.GetConsoleSize()
 
+	max := width
+
 	if width > height {
-		return height
+		max = height
 	}
-	return width
+
+	// Have a min size in case detection comes up with something weird.
+	if max < 10 {
+		max = 10
+	}
+
+	log.Info.Printf("Detected console size: width = %d, height = %d, max-edge = %d\n", width, height, max)
+
+	return max
 
 }
 

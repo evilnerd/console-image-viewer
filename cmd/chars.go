@@ -17,7 +17,7 @@ var (
 			for _, file := range matches {
 				log.DefaultSection.Println(file)
 				img, imgType := input.GetImage(file)
-				render.ImageChars(img, activeMaxEdge(), imgType)
+				render.ImageChars(img, activeMaxEdge(), imgType, invert)
 			}
 		},
 	}
@@ -25,6 +25,6 @@ var (
 )
 
 func init() {
-	// TODO: charsCmd.Flags().BoolVarP(&invert, "invert", "i", false, "Invert the picture (flip light-dark)")
+	charsCmd.Flags().BoolVarP(&invert, "invert", "i", false, "Invert the picture (flip light-dark)")
 	rootCmd.AddCommand(charsCmd)
 }

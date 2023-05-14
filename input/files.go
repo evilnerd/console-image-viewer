@@ -15,5 +15,10 @@ func GetImageFilenames(args []string) []string {
 		}
 		out = append(out, matches...)
 	}
+
+	if len(out) == 0 {
+		log.Warning.Printf("No files match the given name, folder or wildcards (%s).\n", args)
+	}
+
 	return out
 }
